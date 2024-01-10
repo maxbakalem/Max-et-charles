@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        a {
+    text-decoration: none;
+    color: black;
+    
+    text-transform: uppercase;
+        }
+        a:hover{
+    color: grey;
+        }
+
+        nav{
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    font-size: calc(0.5rem + 1.5vw);
+        }
+        nav ul{
+   display: flex;
+   justify-content: space-around;
+   width: 70%;  
+        }
+        body{
+            background: white;
+            color: black;
+        }
+
+        .night-mode  {
+            background: black;
+            color:white
+        }
+        .night-mode a {
+            color: white;
+        }
+
+        h2{
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        #burger{
+            cursor: pointer;
+            display: none;
+        }
+        @media  (max-width:500px) {
+            #burger {display: block;}
+            #burger:before{
+                content: "\2630";
+            } 
+            .active #burger:before{
+                content: "\2715";
+            }
+
+            ul{
+                position:fixed; 
+                left: -100%;
+                
+                }     
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Mon site</h1>
+            <ul>
+                <a href="#">accueil</a></li>
+                <a href="#">contact</a></li>
+                <a href="#">login</a></li>
+            </ul>
+            <div id="burger"></div>
+            <button id="nuit">Night</button>
+        </nav>
+    </header>
+    <main>
+    <h2>Cusine du monde</h2>
+    <h3>Cusine orientale</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore sed voluptatum cupiditate quod nihil assumenda praesentium dignissimos culpa at nulla!</p>
+
+<h3>Cusine européenne</h3>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum enim illo, quos nam natus perferendis quas! Culpa delectus voluptatum reiciendis.</p>
+
+<h3>Cusine Africaine</h3>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis aperiam labore illum porro ipsa voluptates maiores dignissimos doloremque et delectus.</p>
+</main>
+
+
+
+<script>
+        const btn = document.querySelector("#nuit")
+
+        btn.addEventListener("click", function () {
+            document.body.classList.toggle('night-mode')
+            
+        })
+
+    </script>
+</script>
+    
+</body>
+</html>

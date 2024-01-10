@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+    <style>
+        header{display: flex; justify-content: space-around; margin: 20px;}
+        #menu{display: flex; justify-content: space-around; align-items: center;}
+        #menu a{color: black; text-decoration: none; text-transform: uppercase; font-weight: 600; margin: 20px;}
+        #change{display: none; font-size: 3em; font-weight: 700; rotate: 90deg;}
+        @media only screen and (max-width: 768px){#menu{position:absolute;left:calc(50% - 150px);top:50px;display: none;flex-direction: column;width:300px;text-align: center; background: #FCE762; border-radius: 16px; border: black solid 2px;} #change{display: block; position: absolute; left: 80px; cursor: pointer; padding: 10px;}}
+    </style>
+</head>
+    <body>
+        <header>
+            <nav id="menu">
+                <a href="#">Lorem.</a>
+                <a href="#">Omnis.</a>
+                <a href="#">Iusto?</a>
+                <a href="#">Id.</a>
+                <a href="#">Nostrum!</a>
+            </nav>
+            <span id="change">|||</span>
+        </header>
+
+        <script>
+            let nb = 0
+
+            const changeit = document.querySelector('#change')
+            changeit.addEventListener('click', change)
+
+
+            function change(){
+                if (window.innerWidth <= 768) {
+                if (nb % 2 == 0) {
+                    document.querySelector('#menu').style.display = 'flex';
+                    document.querySelector('#change').innerHTML = '+'
+                    document.querySelector('#change').style.transform = 'rotate(45deg)'
+                }   else if (nb % 2 == 1) {
+                    document.querySelector('#menu').style.display = 'none';
+                    document.querySelector('#change').innerHTML = '|||'
+                    document.querySelector('#change').style.transform = 'rotate(0deg)'
+                }
+                nb++
+            } else {
+                document.querySelector('#menu').style.display = 'flex';
+            }
+        }
+            window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                document.querySelector('#menu').style.display = 'flex';
+            } else {
+                document.querySelector('#menu').style.display = 'none'
+            }
+        })
+        </script>
+    </body>
+</html>
